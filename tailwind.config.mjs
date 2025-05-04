@@ -1,4 +1,4 @@
-module.exports = {
+const tailwindcssConfig = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
@@ -8,3 +8,5 @@ module.exports = {
   },
   plugins: [],
 }
+
+export default tailwindcssConfig;

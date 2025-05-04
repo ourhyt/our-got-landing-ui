@@ -1,3 +1,3 @@
-export default function ContactSection() {
+export function ContactSection() {
   return <div>ContactSection</div>;
 }

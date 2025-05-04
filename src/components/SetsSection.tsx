@@ -1,3 +1,3 @@
-export default function SetsSection() {
+export function SetsSection() {
   return <div>SetsSection</div>;
 }

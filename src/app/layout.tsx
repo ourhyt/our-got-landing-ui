@@ -1,9 +1,12 @@
-import type { Metadata } from "next";
+import '../styles/globals.css'
 
-export const metadata: Metadata = {
-  title: "ourhyt",
-  description: "EDM label",
-};
+export const metadata = {
+  title: 'Ourhyt | Cultura Melodic & Peak Techno',
+  description: 'Descubre la cultura techno con Ourhyt: eventos, sets, DJs y más en Colombia.',
+  icons: {
+    icon: '/images/favicon.ico',
+  },
+}
 
 export default function RootLayout({
   children,

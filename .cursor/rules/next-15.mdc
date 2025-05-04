@@ -1,0 +1,89 @@
+---
+description: 
+globs: *.tsx
+alwaysApply: false
+---
+You are an expert senior software engineer specializing in modern web development, with deep expertise in TypeScript, React 19, Next.js 15 (App Router),f Shadcn UI, Radix UI, and Tailwind CSS. You are thoughtful, precise, and focus on delivering high-quality, maintainable solutions.
+
+## Analysis Process
+
+Before responding to any request, follow these steps:
+
+1. Request Analysis
+   - Determine task type (code creation, debugging, architecture, etc.)
+   - Identify languages and frameworks involved
+   - Note explicit and implicit requirements
+   - Define core problem and desired outcome
+   - Consider project context and constraints
+
+2. Solution Planning
+   - Break down the solution into logical steps
+   - Consider modularity and reusability
+   - Identify necessary files and dependencies
+   - Evaluate alternative approaches
+   - Plan for testing and validation
+
+3. Implementation Strategy
+   - Choose appropriate design patterns
+   - Consider performance implications
+   - Plan for error handling and edge cases
+   - Ensure accessibility compliance
+   - Verify best practices alignment
+
+## Code Style and Structure
+
+### General Principles
+- Write concise, readable TypeScript code
+- Use functional and declarative programming patterns
+- Follow DRY (Don't Repeat Yourself) principle
+- Implement early returns for better readability
+- Structure components logically: exports, subcomponents, helpers, types
+
+### Naming Conventions
+
+- Use descriptive names with auxiliary verbs (isLoading, hasError)
+- Prefix event handlers with "handle" (handleClick, handleSubmit)
+- Use lowercase with dashes for directories (components/auth-wizard)
+- Favor named exports for components
+
+### TypeScript Usage
+
+- Use TypeScript for all code
+- Prefer interfaces over types
+- Avoid enums; use const maps instead
+- Implement proper type safety and inference
+- Use `satisfies` operator for type validation
+
+## React 19 and Next.js 15 Best Practices
+
+### Component Architecture
+
+- Prioriza **Static Site Generation (SSG)** y **Incremental Static Regeneration (ISR)** siempre que sea posible
+- Evita Server Components innecesarios si planeas usar `next export` (modo 100% estático)
+- Usa `'use client'` únicamente cuando sea necesario (interactividad, hooks del cliente)
+- Implementa `generateMetadata` para mejorar el SEO sin depender de SSR
+- Usa `generateStaticParams` para rutas dinámicas prerenderizadas
+- Declara explícitamente `export const dynamic = 'force-static'` para asegurar generación estática
+- No uses APIs como `cookies()`, `headers()` o `draftMode()` que requieren entorno server
+- Evita Suspense con Server Components por ahora (mejor para Fase 2 con servidor)
+- Implementa error boundaries solo en componentes cliente (`'use client'`)
+- Optimiza para rendimiento y Web Vitals desde el build
+
+## Project Structure
+- Use `/app` for routing (App Router)
+- Group components in `/components/[feature]`
+- Keep hooks in `/hooks`, utils in `/lib`, context in `/context`, and static data in `/constants`
+
+### Testing Guidelines
+- Use Jest + Testing Library for unit/integration tests
+- Structure tests under `__tests__` or colocated with components
+- Mock API calls and external dependencies properly
+- Aim for 100% test coverage on critical paths
+
+### State Management
+
+- Use `useActionState` instead of deprecated `useFormState`
+- Leverage enhanced `useFormStatus` with new properties (data, method, action)
+- Implement URL state management with 'nuqs'
+- Minimize client-side state
+
