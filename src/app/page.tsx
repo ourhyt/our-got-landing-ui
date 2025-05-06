@@ -1,12 +1,10 @@
-import { AboutSection } from "@/components/AboutSection";
 import { EventsSection } from "@/components/EventsSection";
 import { GallerySection } from "@/components/GallerySection";
 import { SetsSection } from "@/components/SetsSection";
-import { Hero } from "@/components/Hero";
-import { ContactSection } from "@/components/ContactSection";
+import { HeroSection } from "@/components/Hero";
 import { Footer } from "@/components/Footer";
-import { Navbar} from "@/components/Navbar";
 import { Metadata } from "next";
+import { DjsSection } from "@/components/DjsSection";
 
 export const dynamic = 'force-static' // 🔒 Garantiza que sea SSG
 
@@ -31,13 +29,11 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <Navbar/>
-      <Hero />
-      <AboutSection />
+      <HeroSection />
       <EventsSection />
       <SetsSection />
+      <DjsSection />
       <GallerySection />
-      <ContactSection />
       <Footer />
     </>
   );

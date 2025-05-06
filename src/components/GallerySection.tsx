@@ -1,3 +1,3 @@
 export function GallerySection() {
-  return <div>GallerySection</div>;
+  return <div id="gallery">GallerySection</div>;
 }

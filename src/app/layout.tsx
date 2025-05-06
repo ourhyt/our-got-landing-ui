@@ -1,4 +1,8 @@
+import { Navbar } from '@/components/layout/Navbar';
 import '../styles/globals.css'
+import '@fontsource/space-grotesk/400.css'
+import '@fontsource/space-grotesk/600.css'
+import '@fontsource/space-grotesk/700.css'
 
 export const metadata = {
   title: 'Ourhyt | Cultura Melodic & Peak Techno',
@@ -16,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
+        <Navbar />
         {children}
       </body>
     </html>
