@@ -23,16 +23,16 @@ export function Navbar() {
         {/* Left menu */}
         <nav className="hidden md:flex space-x-8 text-sm font-medium tracking-wider">
           <Link 
-            href="#releases" 
+            href="#sets" 
             className="text-zinc-400 hover:text-white transition-colors duration-300 uppercase text-xs tracking-[0.2em]"
           >
-            Releases
+            MIXES
           </Link>
           <Link 
             href="#eventos" 
             className="text-zinc-400 hover:text-white transition-colors duration-300 uppercase text-xs tracking-[0.2em]"
           >
-            Events
+            Eventos
           </Link>
         </nav>
 

@@ -5,6 +5,7 @@ import { HeroSection } from "@/components/Hero";
 import { Footer } from "@/components/Footer";
 import { Metadata } from "next";
 import { DjsSection } from "@/components/DjsSection";
+import { PostsSection } from "@/components/PostsSection";
 
 export const dynamic = 'force-static' // 🔒 Garantiza que sea SSG
 
@@ -32,7 +33,7 @@ export default function Home() {
       <HeroSection />
       <EventsSection />
       <SetsSection />
-      <DjsSection />
+      <PostsSection />
       <GallerySection />
       <Footer />
     </>
