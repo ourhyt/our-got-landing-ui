@@ -136,7 +136,6 @@ export function SetsSection() {
                   </a>
                 </Button>
               </div>
-
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-zinc-900">
                 <iframe
                   width="100%"
@@ -150,7 +149,6 @@ export function SetsSection() {
               </div>
             </motion.div>
           </AnimatePresence>
-
           <button
             onClick={prevSlide}
             className="absolute left-4 top-1/2 -translate-y-1/2 bg-zinc-900/50 hover:bg-zinc-900/80 text-white p-2 rounded-full transition-colors backdrop-blur-sm"
@@ -163,7 +161,6 @@ export function SetsSection() {
           >
             <ChevronRight className="w-6 h-6" />
           </button>
-
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex justify-center space-x-2">
             {filteredSets.map((_, index) => (
               <button

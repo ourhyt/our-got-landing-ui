@@ -34,7 +34,6 @@ export function Navbar() {
             Eventos
           </Link>
         </nav>
-
         <div className="flex-1 flex justify-center">
           <Link href="#hero">
             <motion.div
@@ -56,7 +55,6 @@ export function Navbar() {
             </motion.div>
           </Link>
         </div>
-
         <div className="hidden md:flex items-center space-x-8">
           <Link 
             href="#gallery" 
