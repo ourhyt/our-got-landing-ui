@@ -75,7 +75,6 @@ export function SetsSection() {
 
   return (
     <section id="sets" className="relative min-h-screen bg-zinc-950 py-20 px-4">
-      {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-900 via-zinc-950 to-black opacity-50" />
       <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-[0.15] mix-blend-overlay" />
 
@@ -112,7 +111,6 @@ export function SetsSection() {
               transition={{ duration: 0.5 }}
               className="relative w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"
             >
-              {/* Left side - Set info */}
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-zinc-900 p-8 flex flex-col justify-between">
                 <div>
                   <h3 className="text-3xl md:text-4xl font-black tracking-tighter uppercase text-white mb-4">
@@ -138,8 +136,6 @@ export function SetsSection() {
                   </a>
                 </Button>
               </div>
-
-              {/* Right side - SoundCloud player */}
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-zinc-900">
                 <iframe
                   width="100%"
@@ -153,8 +149,6 @@ export function SetsSection() {
               </div>
             </motion.div>
           </AnimatePresence>
-
-          {/* Navigation buttons */}
           <button
             onClick={prevSlide}
             className="absolute left-4 top-1/2 -translate-y-1/2 bg-zinc-900/50 hover:bg-zinc-900/80 text-white p-2 rounded-full transition-colors backdrop-blur-sm"
@@ -167,8 +161,6 @@ export function SetsSection() {
           >
             <ChevronRight className="w-6 h-6" />
           </button>
-
-          {/* Pagination dots */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex justify-center space-x-2">
             {filteredSets.map((_, index) => (
               <button
