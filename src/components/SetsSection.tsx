@@ -76,7 +76,6 @@ export function SetsSection() {
     <section id="sets" className="relative min-h-screen bg-zinc-950 py-20 px-4">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-900 via-zinc-950 to-black opacity-50" />
       <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-[0.15] mix-blend-overlay" />
-
       <div className="relative z-10 h-full max-w-7xl mx-auto flex flex-col">
         <motion.div {...titleAnimation.animation} ref={titleAnimation.ref} className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase text-white mb-4">
