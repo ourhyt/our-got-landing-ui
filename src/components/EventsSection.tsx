@@ -144,7 +144,6 @@ export function EventsSection() {
               </div>
             </motion.div>
           </AnimatePresence>
-
           <button
             onClick={prevSlide}
             className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full transition-colors backdrop-blur-sm"
