@@ -19,6 +19,7 @@ export function Navbar() {
         willChange: 'background-color, border-color'
       }}
     >
+      
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <nav className="hidden md:flex space-x-8 text-sm font-medium tracking-wider">
           <Link 
