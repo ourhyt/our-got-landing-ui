@@ -1,3 +1,3 @@
-export default function GallerySection() {
-  return <div>GallerySection</div>;
+export function GallerySection() {
+  return <div id="gallery">GallerySection</div>;
 }
