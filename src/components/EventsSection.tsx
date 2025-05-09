@@ -75,7 +75,6 @@ export function EventsSection() {
 
   return (
     <section id="eventos" className="relative min-h-screen bg-black py-20 px-4">
-      {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-900 via-black to-black opacity-50" />
       <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-[0.15] mix-blend-overlay" />
 
@@ -146,7 +145,6 @@ export function EventsSection() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation buttons */}
           <button
             onClick={prevSlide}
             className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full transition-colors backdrop-blur-sm"
@@ -160,7 +158,6 @@ export function EventsSection() {
             <ChevronRight className="w-6 h-6" />
           </button>
 
-          {/* Pagination dots */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex justify-center space-x-2">
             {filteredEvents.map((_, index) => (
               <button

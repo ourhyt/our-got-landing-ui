@@ -20,7 +20,6 @@ export function Navbar() {
       }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Left menu */}
         <nav className="hidden md:flex space-x-8 text-sm font-medium tracking-wider">
           <Link 
             href="#sets" 
@@ -36,7 +35,6 @@ export function Navbar() {
           </Link>
         </nav>
 
-        {/* Logo centered */}
         <div className="flex-1 flex justify-center">
           <Link href="#hero">
             <motion.div
@@ -59,7 +57,6 @@ export function Navbar() {
           </Link>
         </div>
 
-        {/* Right menu */}
         <div className="hidden md:flex items-center space-x-8">
           <Link 
             href="#gallery" 
