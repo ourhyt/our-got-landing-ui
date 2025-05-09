@@ -64,7 +64,6 @@ export function SetsSection() {
     duration: 0.8,
     delay: 0.2
   })
-
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % filteredSets.length)
   }
