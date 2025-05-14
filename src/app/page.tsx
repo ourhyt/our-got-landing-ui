@@ -1,13 +1,10 @@
 import { EventsSection } from "@/components/EventsSection";
-import { GallerySection } from "@/components/GallerySection";
 import { SetsSection } from "@/components/SetsSection";
 import { HeroSection } from "@/components/Hero";
-import { Footer } from "@/components/Footer";
 import { Metadata } from "next";
-import { DjsSection } from "@/components/DjsSection";
 import { PostsSection } from "@/components/PostsSection";
 
-export const dynamic = 'force-static' // 🔒 Garantiza que sea SSG
+export const dynamic = 'force-static'
 
 export const metadata: Metadata = {
   title: 'Ourhyt | Cultura Melodic & Peak Techno',
@@ -34,8 +31,6 @@ export default function Home() {
       <EventsSection />
       <SetsSection />
       <PostsSection />
-      <GallerySection />
-      <Footer />
     </>
   );
 }
