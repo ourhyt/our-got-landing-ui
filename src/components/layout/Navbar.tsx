@@ -8,7 +8,6 @@ import { useScrolled } from '@/hooks/useScrolled'
 
 export function Navbar() {
   const scrolled = useScrolled(300)
-  
   return (
     <header
       className={`sticky top-0 z-50 h-16 backdrop-blur-md ${
