@@ -8,7 +8,6 @@ import { useScrolled } from '@/hooks/useScrolled'
 
 export function Navbar() {
   const scrolled = useScrolled(300)
-  
   return (
     <header
       className={`sticky top-0 z-50 h-16 backdrop-blur-md ${
@@ -57,17 +56,22 @@ export function Navbar() {
         </div>
         <div className="hidden md:flex items-center space-x-8">
           <Link 
-            href="#gallery" 
+            href="#posts" 
             className="text-zinc-400 hover:text-white transition-colors duration-300 uppercase text-xs tracking-[0.2em]"
           >
-            Gallery
+            Posts
           </Link>
-          <Link 
-            href="#contact" 
+          <button 
+            onClick={() => {
+              window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+              })
+            }}
             className="text-zinc-400 hover:text-white transition-colors duration-300 uppercase text-xs tracking-[0.2em]"
           >
-            Contact
-          </Link>
+            Contactanos
+          </button>
           <div className="flex items-center space-x-6 pl-4 border-l border-zinc-800">
             <Link 
               href="https://instagram.com" 
