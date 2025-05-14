@@ -3,6 +3,7 @@ import '../styles/globals.css'
 import '@fontsource/space-grotesk/400.css'
 import '@fontsource/space-grotesk/600.css'
 import '@fontsource/space-grotesk/700.css'
+import { FooterReveal } from '@/components/layout/FooterReveal';
 
 export const metadata = {
   title: 'Ourhyt | Cultura Melodic & Peak Techno',
@@ -21,7 +22,13 @@ export default function RootLayout({
     <html lang="es">
       <body>
         <Navbar />
-        {children}
+          <main
+            className="relative z-10 bg-black"
+            style={{ minHeight: '100vh', marginBottom: 600 }} // ¡Asegúrate de este marginBottom!
+          >
+          {children}
+        </main>
+        <FooterReveal />
       </body>
     </html>
   );
