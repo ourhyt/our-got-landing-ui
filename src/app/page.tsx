@@ -9,6 +9,9 @@ export const dynamic = 'force-static'
 export const metadata: Metadata = {
   title: 'Ourhyt | Cultura Melodic & Peak Techno',
   description: 'Descubre eventos, sets, DJs y más de la escena techno en Colombia con Ourhyt.',
+  icons: {
+    icon: '/images/favicon.ico',
+  },
   openGraph: {
     title: 'Ourhyt | Cultura Melodic & Peak Techno',
     description: 'Descubre eventos, sets, DJs y más de la escena techno en Colombia con Ourhyt.',
@@ -23,6 +26,7 @@ export const metadata: Metadata = {
     description: 'Explora la cultura techno con eventos, sets, podcasts y más.',
   },
 }
+
 
 export default function Home() {
   return (
