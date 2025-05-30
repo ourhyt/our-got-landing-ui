@@ -5,53 +5,18 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useRevealAnimation } from '@/hooks/useRevealAnimationProps'
-
-const events = [
-  {
-    id: 1,
-    title: "Ourhyt Invites: Melodic Takeover",
-    date: "15 Junio 2025",
-    location: "Medellín, Colombia",
-    imageUrl: "/images/events/our-event-1.jpg",
-    ticketUrl: "https://ourhyt.com/tickets/melodic",
-    isPast: false,
-    country: "Colombia"
-  },
-  {
-    id: 2,
-    title: "Peak Time Techno Night",
-    date: "22 Junio 2025",
-    location: "Bogotá, Colombia",
-    imageUrl: "/images/events/our-event-2.jpg",
-    ticketUrl: "https://ourhyt.com/tickets/peak-time",
-    isPast: false,
-    country: "Colombia"
-  },
-  {
-    id: 3,
-    title: "Melodic Journey",
-    date: "10 Mayo 2025",
-    location: "Cali, Colombia",
-    imageUrl: "/images/events/our-event-3.jpg",
-    ticketUrl: "https://ourhyt.com/tickets/melodic-journey",
-    isPast: true,
-    country: "Colombia"
-  },
-  {
-    id: 4,
-    title: "Underground Sessions",
-    date: "5 Mayo 2025",
-    location: "Medellín, Colombia",
-    imageUrl: "/images/events/our-event-4.jpg",
-    ticketUrl: "https://ourhyt.com/tickets/underground",
-    isPast: true,
-    country: "Colombia"
-  }
-]
+import { useEvents } from '@/hooks/useApiHooks/useEventsApiData'
 
 export function EventsSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [activeTab, setActiveTab] = useState<'upcoming' | 'past' | 'colombia'>('upcoming')
+  const { events, isLoading, error } = useEvents()
+
+  const titleAnimation = useRevealAnimation({
+    direction: 'up',
+    duration: 0.8,
+    delay: 0.2
+  })
 
   const filteredEvents = events.filter(event => {
     if (activeTab === 'upcoming') return !event.isPast
@@ -59,11 +24,27 @@ export function EventsSection() {
     return event.country === 'Colombia'
   })
 
-  const titleAnimation = useRevealAnimation({
-    direction: 'up',
-    duration: 0.8,
-    delay: 0.2
-  })
+  if (isLoading) {
+
+    return (
+      <section className="relative min-h-screen bg-zinc-950 py-20 px-4">
+        <div className="relative z-10 h-full max-w-7xl mx-auto flex flex-col items-center justify-center">
+          <div className="text-white text-xl">Cargando eventos...</div>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+
+    return (
+      <section className="relative min-h-screen bg-zinc-950 py-20 px-4">
+        <div className="relative z-10 h-full max-w-7xl mx-auto flex flex-col items-center justify-center">
+          <div className="text-red-500 text-xl">Error al cargar los eventos</div>
+        </div>
+      </section>
+    )
+  }
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % filteredEvents.length)

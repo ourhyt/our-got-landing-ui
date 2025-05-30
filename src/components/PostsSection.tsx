@@ -6,65 +6,7 @@ import { Button } from '@/components/ui/button'
 import { useRevealAnimation } from '@/hooks/useRevealAnimationProps'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-
-const posts = [
-  {
-    id: 1,
-    title: "El Resurgimiento del Techno en Latinoamérica",
-    description: "Exploramos cómo la escena techno está creciendo exponencialmente en Latinoamérica, con un enfoque especial en Colombia y sus nuevos talentos.",
-    date: "15 Junio 2024",
-    imageUrl: "/images/posts/post-1.jpg",
-    category: "Noticias"
-  },
-  {
-    id: 2,
-    title: "Entrevista: El Futuro del Melodic Techno",
-    description: "Charlamos con los principales exponentes del melodic techno sobre las tendencias emergentes y el futuro del género en la escena underground.",
-    date: "12 Junio 2024",
-    imageUrl: "/images/posts/post-2.jpg",
-    category: "Entrevistas"
-  },
-  {
-    id: 3,
-    title: "Guía: Equipamiento para DJs Principiantes",
-    description: "Una guía completa sobre el equipamiento esencial para comenzar tu carrera como DJ, desde controladores hasta software recomendado.",
-    date: "10 Junio 2024",
-    imageUrl: "/images/posts/post-3.jpg",
-    category: "Guías"
-  },
-  {
-    id: 4,
-    title: "Guía: Equipamiento para DJs Principiantes",
-    description: "Una guía completa sobre el equipamiento esencial para comenzar tu carrera como DJ, desde controladores hasta software recomendado.",
-    date: "10 Junio 2024",
-    imageUrl: "/images/posts/post-3.jpg",
-    category: "Guías"
-  },
-  {
-    id: 5,
-    title: "Guía: Equipamiento para DJs Principiantes",
-    description: "Una guía completa sobre el equipamiento esencial para comenzar tu carrera como DJ, desde controladores hasta software recomendado.",
-    date: "10 Junio 2024",
-    imageUrl: "/images/posts/post-3.jpg",
-    category: "Guías"
-  },
-  {
-    id: 6,
-    title: "Guía: Equipamiento para DJs Principiantes",
-    description: "Una guía completa sobre el equipamiento esencial para comenzar tu carrera como DJ, desde controladores hasta software recomendado.",
-    date: "10 Junio 2024",
-    imageUrl: "/images/posts/post-3.jpg",
-    category: "Guías"
-  },
-  {
-    id: 7,
-    title: "Guía: Equipamiento para DJs Principiantes",
-    description: "Una guía completa sobre el equipamiento esencial para comenzar tu carrera como DJ, desde controladores hasta software recomendado.",
-    date: "10 Junio 2024",
-    imageUrl: "/images/posts/post-3.jpg",
-    category: "Guías"
-  }
-]
+import { usePosts } from '@/hooks/useApiHooks/usePostsApiData'
 
 const POSTS_PER_PAGE = 3
 
@@ -72,17 +14,39 @@ export function PostsSection() {
   const router = useRouter()
   const [currentPage, setCurrentPage] = useState(1)
   const sectionRef = useRef<HTMLElement>(null)
-  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
-  
-  const startIndex = (currentPage - 1) * POSTS_PER_PAGE
-  const endIndex = startIndex + POSTS_PER_PAGE
-  const currentPosts = posts.slice(startIndex, endIndex)
+  const { posts, isLoading, error } = usePosts()
 
   const titleAnimation = useRevealAnimation({
     direction: 'up',
     duration: 0.8,
     delay: 0.2
   })
+
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
+  
+  const startIndex = (currentPage - 1) * POSTS_PER_PAGE
+  const endIndex = startIndex + POSTS_PER_PAGE
+  const currentPosts = posts.slice(startIndex, endIndex)
+
+  if (isLoading) {
+    return (
+      <section className="relative min-h-screen bg-zinc-950 py-20 px-4">
+        <div className="relative z-10 h-full max-w-7xl mx-auto flex flex-col items-center justify-center">
+          <div className="text-white text-xl">Cargando posts...</div>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="relative min-h-screen bg-zinc-950 py-20 px-4">
+        <div className="relative z-10 h-full max-w-7xl mx-auto flex flex-col items-center justify-center">
+          <div className="text-red-500 text-xl">Error al cargar los posts</div>
+        </div>
+      </section>
+    )
+  }
 
   const containerAnimation = {
     hidden: { opacity: 0 },
@@ -130,7 +94,7 @@ export function PostsSection() {
     }
   }
 
-  const handlePostClick = (postId: number) => {
+  const handlePostClick = (postId: string) => {
     router.push(`/posts/${postId}`)
   }
 
